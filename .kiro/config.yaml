@@ -1,0 +1,61 @@
+# Kiro Configuration for Local Guide
+# This configuration file specifies how Kiro should be integrated with local context
+
+name: "Kiro Local Guide"
+version: "1.0.0"
+description: "City-specific guide powered by Kiro with custom context learning"
+
+# Context Configuration
+context:
+  source_file: "product.md"
+  learning_mode: "context-aware"
+  update_frequency: "dynamic"
+  
+# Feature Modules
+features:
+  - name: "slang_translator"
+    enabled: true
+    description: "Translates local slang using context"
+    context_dependence: "high"
+    
+  - name: "street_food_recommender"
+    enabled: true
+    description: "Recommends local street food"
+    context_dependence: "high"
+    
+  - name: "traffic_estimator"
+    enabled: true
+    description: "Estimates local traffic patterns"
+    context_dependence: "medium"
+
+# Kiro Integration Parameters
+kiro:
+  model: "kiro-latest"
+  context_injection: "enabled"
+  custom_context_file: "product.md"
+  context_window_size: 2048
+  temperature: 0.7
+  max_tokens: 512
+
+# Learning Configuration
+learning:
+  continuous_improvement: true
+  feedback_collection: true
+  context_refinement: true
+  update_interval_days: 7
+
+# API Configuration
+api:
+  port: 8000
+  host: "0.0.0.0"
+  endpoints:
+    - "/translate-slang"
+    - "/recommend-food"
+    - "/estimate-traffic"
+    - "/get-cultural-info"
+
+# Logging
+logging:
+  level: "INFO"
+  format: "structured"
+  output: "logs/kiro_local_guide.log"
